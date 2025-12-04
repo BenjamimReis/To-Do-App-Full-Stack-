@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - '5000:5000'
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/todo
+      - POSTGRES_URI=postgres://user:pass@postgres:5432/todo
+    depends_on:
+      - mongo
+      - postgres
+
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/graphql
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: todo
+    ports:
+      - '5432:5432'
