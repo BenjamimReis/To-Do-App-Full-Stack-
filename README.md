@@ -12,8 +12,8 @@ Uma plataforma de produtividade completa, com painel web, mobile opcional, integ
 ## Setup
 1. Clonar repo
 2. Rodar `docker-compose up --build`
-3. Backend: http://localhost:5000/graphql
-4. Frontend: http://localhost:3000
+3. Backend:  http://
+4. Frontend: http://
 
 ## Funcionalidades
 - CRUD de tarefas com categorias e prioridade
