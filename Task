@@ -1,0 +1,17 @@
+import mongoose from 'mongoose';
+import { DataTypes, Sequelize } from 'sequelize';
+
+export const TaskSQL = (sequelize: Sequelize) => {
+  return sequelize.define('Task', {
+    id: { type: DataTypes.UUID, primaryKey: true, defaultValue: DataTypes.UUIDV4 },
+    title: { type: DataTypes.STRING, allowNull: false },
+    completed: { type: DataTypes.BOOLEAN, defaultValue: false },
+    userId: { type: DataTypes.UUID, allowNull: false },
+  });
+};
+
+export const TaskNoSQL = mongoose.model('TaskLog', new mongoose.Schema({
+  taskId: String,
+  action: String,
+  timestamp: Date,
+}));
