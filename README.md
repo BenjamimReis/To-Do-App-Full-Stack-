@@ -1,6 +1,6 @@
 // ==========================================
 // Projeto 1 - To-Do App Full Stack Profissional
-// Estrutura completa para copiar e colar no GitHub
+//
 // ==========================================
 
 // Estrutura de pastas:
